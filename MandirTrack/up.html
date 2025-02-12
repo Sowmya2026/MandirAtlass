@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttar Pradesh Temples | MandirAtlas</title>
+    <link rel="stylesheet" href="up.css"> <!-- Link to your common CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu_open" />
+    <style>
+       /* Overlay behind the popup */
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
+    z-index: 999;
+}
+
+/* Popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    max-width: 600px;
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Lora', serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Popup Title */
+.popup h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Popup Content */
+.popup p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Close Button */
+.popup button {
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup button:hover {
+    background-color: #e68a00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        padding: 20px;
+    }
+    .popup h2 {
+        font-size: 20px;
+    }
+    .popup p {
+        font-size: 15px;
+    }
+    .popup button {
+        font-size: 14px;
+    }
+}
+.read-more {
+  position: absolute;
+  bottom: 10px; /* Adjust this value to move it up or down */
+  right: 10px; /* Adjust this value to move it left or right */
+}
+
+
+        /* Travel Page Styling */
+        .travel-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .travel-section input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        .travel-section button {
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .travel-section button:hover {
+            background-color: #e68a00;
+        }
+        .travel-results {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <span class="material-symbols-outlined menu-icon" onclick="toggleMenu()">menu_open</span>
+        <h1 class="menu-title">MandirAtlas</h1>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav id="menuDrawer" class="menu-drawer">
+        <ul>
+            <li><a href="file:///F:/MandirTrack/up.html" onclick="toggleMenu();">🏛️ Uttar Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/tn.html" onclick="toggleMenu();">🏯 Tamil Nadu</a></li>
+            <li><a href="file:///F:/MandirTrack/tg.html" onclick="toggleMenu();">🛕 Telangana</a></li>
+            <li><a href="file:///F:/MandirTrack/ap.html" onclick="toggleMenu();">🕉️ Andhra Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/k.html" onclick="toggleMenu();">🌺 Karnataka</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Rajasthan</a></li>
+            <li><a href="#" onclick="toggleMenu();">🏯 Maharashtra</a></li>
+            <li><a href="#" onclick="toggleMenu();">🔱 Gujarat</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌿 West Bengal</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌊 Kerala</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Madhya Pradesh</a></li>
+            <li><a href="#" onclick="toggleMenu();">🐘 Odisha</a></li>
+            <li><a href="#" onclick="toggleMenu();">🥁 Punjab</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌾 Bihar</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌸 Assam</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h1>Temples in Uttar Pradesh</h1>
+        <h2>Discover the most famous temples in Uttar Pradesh</h2>
+
+    </div>
+
+    <div class="book-container">
+        <!-- Page 1 (Image and Title Section) -->
+        <div class="book-page image-page" id="page1">
+            <div class="image-section">
+                <h2>1.🔱 Kashi Vishwanath Temple</h2>
+                <div class="image-container">
+                    <img class="image" src="Kashi Vishwanath Dham.jpg">
+                    <img class="image hidden" src="baba kashi vishwanath.jpg">
+                    <img class="image hidden" src="kashi.jpg">
+                </div>
+                <div class="radio-buttons">
+                    <input type="radio" name="image-kashi" class="radio-btn" checked>
+                    <input type="radio" name="image-kashi" class="radio-btn">
+                    <input type="radio" name="image-kashi" class="radio-btn">
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2 (Content Section) -->
+        <div class="book-page content-page" id="page2">
+            <div class="content-section">
+                <!-- Section 1: Temple Introduction & Rituals & Festivals -->
+                <div class="section">
+                    <h3>📍 Temple Introduction</h3>
+                    <ul>
+                        <li><strong>📍 Location:</strong> Varanasi, Uttar Pradesh</li>
+                        <li><strong>🕉️ Deity:</strong> Lord Shiva</li>
+                        <li><strong>🏛️ Architecture:</strong> Nagara-style</li>
+                        <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                    </ul>
+                </div>
+        
+                <div class="section">
+                    <h3>🕯️ Rituals & Festivals</h3>
+                    <ul>
+                        <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                        <li><strong>Major Festivals:</strong> Mahashivratri, Kartik Purnima</li>
+                    </ul>
+                </div>
+        
+                <!-- Section 2: Visitor Information -->
+                <div class="section">
+                    <h3>🚶 Visitor Information & Tips</h3>
+                    <ul>
+                        <li><strong>⏰ Timings:</strong> 4:00 AM – 10:00 PM</li>
+                        <li><strong>🎟 Entry Fee:</strong> Free (VIP Darshan ₹500)</li>
+                        <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                    </ul>
+                </div>
+                <button class="read-more" id="readMore-kashi">Read More →</button>    
+            </div>
+        </div>
+
+        <!-- Page 3 (User Reviews & Additional Info) -->
+        <div class="book-page content-page" id="page3" style="display: none;">
+            <div class="content-section">
+                <!-- Section 3: Nearby Attractions -->
+                <div class="section">
+                    <h3>🗺️ Nearby Attractions</h3>
+                    <ul>
+                        <li><strong>🛣️ 1 km</strong> → Dashashwamedh Ghat</li>
+<li><strong>🛣️ 1.2 km</strong> → Kedar Ghat</li>
+<li><strong>🛣️ 1.5 km</strong> → Manikarnika Ghat</li>
+<li><strong>🛣️ 7 km</strong> → Banaras Hindu University</li>
+<li><strong>🛣️ 10 km</strong> → Sarnath Buddhist Stupa</li>
+<li><strong>🛣️ 14 km</strong> → Ramnagar Fort</li>
+
+                    </ul>
+
+                </div>
+        
+                <!-- Section 4: History & Legends -->
+                <div class="section">
+                    <h3>📜 History & Legends</h3>
+                    <p>The Kashi Vishwanath Temple, dedicated to Lord Shiva, is one of the most significant temples in India. Located in the heart of Varanasi, it is one of the 12 Jyotirlingas, and has a deep spiritual significance for Hindus.</p>
+                </div>
+        
+                <!-- Section 5: User Reviews -->
+                <div class="section">
+                    <h3>🌟 User Reviews & Ratings</h3>
+                    <p>User Reviews & Ratings: 4.8/5</p>
+                </div>
+            </div>
+        </div>
+         <!-- Page 4 (Travel Information) -->
+         <div class="book-page content-page" id="page4" style="display: none;">
+            <div class="travel-section">
+                <h3>🚗 Travel to Kashi Vishwanath Temple</h3>
+                <input type="text" id="startLocation" placeholder="Enter Your Location">
+                <button onclick="calculateTravelTime()">Get Travel Time</button>
+                <div class="travel-results" id="travelResults"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="book-container">
+        <!-- Sri Krishna Janmabhoomi Temple (Mathura) -->
+        <div class="book-page image-page" id="page1-sri-krishna">
+            <div class="image-section">
+                <h2>2.🔱 Sri Krishna Janmabhoomi Temple</h2>
+                <div class="image-container">
+                    <img class="image" src="sri (2).jpg">
+                    <img class="image hidden" src="sri (1).jpg">
+                    <img class="image hidden" src="sri (3).jpg">
+                </div>
+                <div class="radio-buttons">
+                    <input type="radio" name="image-krishna" class="radio-btn" checked>
+                    <input type="radio" name="image-krishna" class="radio-btn">
+                    <input type="radio" name="image-krishna" class="radio-btn">
+                </div>
+            </div>
+        </div>
+    
+        <div class="book-page content-page" id="page2-sri-krishna">
+            <div class="content-section">
+                <div class="section">
+                    <h3>📍 Temple Introduction</h3>
+                    <ul>
+                        <li><strong>📍 Location:</strong> Mathura, Uttar Pradesh</li>
+                        <li><strong>🕉️ Deity:</strong> Lord Krishna</li>
+                        <li><strong>🏛️ Architecture:</strong> Mughal-style</li>
+                        <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>🕯️ Rituals & Festivals</h3>
+                    <ul>
+                        <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                        <li><strong>Major Festivals:</strong> Janmashtami, Holi</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>🚶 Visitor Information & Tips</h3>
+                    <ul>
+                        <li><strong>⏰ Timings:</strong> 5:00 AM – 10:00 PM</li>
+                        <li><strong>🎟 Entry Fee:</strong> Free (VIP Darshan ₹300)</li>
+                        <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                    </ul>
+                </div>
+            
+                <button class="read-more" id="readMore-krishna">Read More →</button>
+          
+                
+            </div>
+        </div>
+    
+        <div class="book-page content-page" id="page3-sri-krishna" style="display: none;">
+            <div class="content-section">
+                <div class="section">
+                    <h3>🗺️ Nearby Attractions</h3>
+                    <ul>
+                        <li><strong>🛣️ 1 km</strong> → Banke Bihari Temple</li>
+                        <li><strong>🛣️ 2 km</strong> → Vrindavan</li>
+                        <li><strong>🛣️ 5 km</strong> → Gokul</li>
+                        <li><strong>🛣️ 10 km</strong> → Radha Kund</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>📜 History & Legends</h3>
+                    <p>The Sri Krishna Janmabhoomi Temple marks the birthplace of Lord Krishna. It holds immense religious significance for Hindus and is located in Mathura, Uttar Pradesh.</p>
+                </div>
+    
+                <div class="section">
+                    <h3>🌟 User Reviews & Ratings</h3>
+                    <p>User Reviews & Ratings: 4.7/5</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="book-page content-page" id="page4-sri-krishna" style="display: none;">
+            <div class="travel-section">
+                <h3>🚗 Travel to Sri Krishna Janmabhoomi Temple</h3>
+                <input type="text" id="startLocation-sri-krishna" placeholder="Enter Your Location">
+                <button onclick="calculateTravelTime()">Get Travel Time</button>
+                <div class="travel-results" id="travelResults-sri-krishna"></div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="book-container">
+        <!-- Chandi Devi Temple (Haridwar) -->
+    <div class="book-page image-page" id="page1-chandi-devi">
+        <div class="image-section">
+            <h2>3.🔱 Chandi Devi Temple</h2>
+            <div class="image-container">
+                <img class="image" src="chandi-devi-temple-2338297.jpg">
+                <img class="image hidden" src="c505cfa3cc54adda1cc681b7ce0274101664367773581490_original.jpg">
+                <img class="image hidden" src="chandi-devi-temple-haridwar-uttarakhand-3-attr-about.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-chandi" class="radio-btn" checked>
+                <input type="radio" name="image-chandi" class="radio-btn">
+                <input type="radio" name="image-chandi" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2-chandi-devi">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Haridwar, Uttarakhand</li>
+                    <li><strong>🕉️ Deity:</strong> Goddess Chandi</li>
+                    <li><strong>🏛️ Architecture:</strong> Traditional North Indian</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Navratri, Maha Shivaratri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 5:00 AM – 10:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free (Cable Car ₹200)</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            
+<button class="read-more" id="readMore-chandi">Read More →</button>
+
+            
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3-chandi-devi" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 1 km</strong> → Har Ki Pauri</li>
+                    <li><strong>🛣️ 3 km</strong> → Mansa Devi Temple</li>
+                    <li><strong>🛣️ 5 km</strong> → Neelkanth Mahadev Temple</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Chandi Devi Temple is one of the most revered pilgrimage sites in Haridwar. It is believed to be the place where Goddess Chandi killed the demon Mahishasura.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.6/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4-chandi-devi" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Chandi Devi Temple</h3>
+            <input type="text" id="startLocation-chandi-devi" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults-chandi-devi"></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="book-container">
+        <!-- Durga Temple (Varanasi) -->
+    <div class="book-page image-page" id="page1-durga-temple">
+        <div class="image-section">
+            <h2>4.🔱 Durga Temple</h2>
+            <div class="image-container">
+                <img class="image" src="temple.jpg">
+                <img class="image hidden" src="temple.jpg">
+                <img class="image hidden" src="temple.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-durga" class="radio-btn" checked>
+                <input type="radio" name="image-durga" class="radio-btn">
+                <input type="radio" name="image-durga" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2-durga-temple">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Varanasi, Uttar Pradesh</li>
+                    <li><strong>🕉️ Deity:</strong> Goddess Durga</li>
+                    <li><strong>🏛️ Architecture:</strong> Traditional North Indian</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Durga Puja, Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Durga Puja, Navratri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 8:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Modest attire</li>
+                </ul>
+            </div>
+            
+            <button class="read-more" id="readMore-durga">Read More →</button>
+
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3-durga-temple" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 1 km</strong> → Kashi Vishwanath Temple</li>
+                    <li><strong>🛣️ 2 km</strong> → Assi Ghat</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Durga Temple is one of the most important temples in Varanasi and is dedicated to Goddess Durga, the goddess of power and strength.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.8/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4-durga-temple" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Durga Temple</h3>
+            <input type="text" id="startLocation-durga-temple" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults-durga-temple"></div>
+        </div>
+    </div>
+
+    </div>
+    <div class="book-container">
+
+    </div>
+    <div class="book-container">
+
+    </div>
+
+   <!-- Popup for Extended History -->
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="historyPopup">
+    <h2 id="popupTitle"></h2>
+    <p id="popupContent1"></p>
+    <p id="popupContent2"></p>
+    <p id="popupContent3"></p>
+    <p  id="popupContent4"></p>
+    <button id="closePopup">Close</button>
+</div>
+
+      <!-- External JavaScript -->
+      <script src="scripte.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Popup content data for each temple
+    const popupData = {
+    "readMore-kashi": {
+        "title": "Extended History of Kashi Vishwanath Temple",
+        "content1": "The Kashi Vishwanath Temple, dedicated to Lord Shiva, is one of the most iconic and revered temples in India, situated in the spiritual city of Varanasi. The temple is known for being one of the twelve Jyotirlingas, a group of sacred shrines dedicated to Lord Shiva, making it one of the holiest pilgrimage sites for Hindus.",
+        "content2": "The history of Kashi Vishwanath Temple dates back over 2,000 years. It is believed that the original temple was established by Lord Shiva himself, and the city of Varanasi has been considered his divine abode. The current temple, however, has been rebuilt multiple times throughout history, owing to its frequent destruction and reconstruction during various invasions.",
+        "content3": "The most notable destruction occurred in 1194, when the temple was demolished by the forces of the Delhi Sultanate. The temple was later reconstructed in the 18th century by Maharani Ahilyabai Holkar of Indore, who is credited with commissioning the present-day structure.",
+        "content4": "The temple boasts intricate carvings, gold-plated spires, and several smaller shrines dedicated to different deities. Every year, millions of devotees visit the temple, especially during the Maha Shivaratri festival, to perform rituals and seek blessings. The temple continues to be an enduring symbol of India's rich spiritual heritage and architectural marvels."
+    },
+    "readMore-krishna": {
+        "title": "Extended History of Sri Krishna Janmabhoomi",
+        "content1": "Sri Krishna Janmabhoomi is the revered birthplace of Lord Krishna, located in Mathura, Uttar Pradesh. According to Hindu scriptures, Lord Krishna was born in a prison cell, known as the Garbhagriha, within the palace of his maternal uncle, King Kamsa. The site is deeply significant to millions of Hindus, who believe that Lord Krishna's divine birth and early life form the foundation of key Hindu philosophies.",
+        "content2": "The temple complex at Janmabhoomi has a long and tumultuous history. Over the centuries, the original structures were repeatedly destroyed and rebuilt. The first temple at the site was established by King Vikramaditya in the 1st century BCE, though it was later demolished during Muslim invasions.",
+        "content3": "The most notable destruction occurred in 1669 under the Mughal Emperor Aurangzeb, who ordered the demolition of the original temple to construct the Shahi Idgah mosque in its place. The present-day Sri Krishna Janmabhoomi Temple was built in the late 19th century, with contributions from various rulers, including the Scindia dynasty.",
+        "content4": "The temple is situated adjacent to the Shahi Idgah mosque, a reminder of the historical tensions at the site. The temple stands as a testament to the resilience of faith, with ongoing efforts to preserve and expand its spiritual significance."
+    },
+    "readMore-chandi": {
+        "title": "Extended History of Chandi Devi Temple",
+        "content1": "Located in Haridwar, Uttarakhand, the Chandi Devi Temple is dedicated to Goddess Chandi and is one of the holiest Shakti Peethas in India. According to Hindu mythology, Goddess Chandi is believed to have appeared at this site to destroy the demon brothers Shumbha and Nishumbha, who were terrorizing the heavens.",
+        "content2": "The original temple is believed to have been constructed by Adi Shankaracharya in the 8th century CE, marking the importance of this sacred site in Hindu tradition. The temple was later renovated and expanded by King Suchat Singh in 1929, whose efforts were instrumental in restoring the temple to its present grandeur.",
+        "content3": "Situated on the Neel Parvat hill in Haridwar, the temple offers stunning views of the city and the sacred Ganges River. Visitors can reach the temple by foot, taking a short trek, or they can opt for a ropeway that offers a more scenic and effortless journey.",
+        "content4": "The temple is a major pilgrimage site for devotees of the goddess, especially during the festival of Navratri, when devotees from across India come to offer prayers and seek blessings for prosperity and strength."
+    },
+    "readMore-durga": {
+        "title": "Extended History of Durga Temple",
+        "content1": "The Durga Temple in Varanasi, dedicated to Goddess Durga, is also known as the Monkey Temple due to its lively surroundings. The temple was built around 500 years ago during the reign of the local king. The idol of Goddess Durga is believed to be self-manifested (Swayambhu), adding to the divine aura of the temple.",
+        "content2": "The temple is situated on the banks of Durga Kund, a sacred pond, and is famous for its striking red-colored structure. The temple's architecture is a blend of traditional Hindu design, with intricate carvings and murals that depict various forms of the goddess. The red color of the temple and the surrounding sacred pond give the site a distinct and powerful presence.",
+        "content3": "During the festival of Navratri, the temple becomes a hub of activity, with thousands of devotees visiting to offer prayers to Goddess Durga. The temple also draws large crowds during other important occasions, as it is believed that worshipping here can bring strength and protection from evil forces.",
+        "content4": "The Durga Temple is not just a place of worship but also a symbol of resilience and divine power, making it a must-visit for those seeking spiritual solace in Varanasi."
+    },
+    "highlights-kashi": [
+        "🕉️ Significance: One of the twelve Jyotirlingas, making it a major pilgrimage site.",
+        "🏛️ Ancient History: Dates back over 2,000 years, believed to have been established by Lord Shiva himself.",
+        "🔨 Destruction and Reconstruction: Destroyed several times, particularly in 1194 by the Delhi Sultanate and later rebuilt in the 18th century by Maharani Ahilyabai Holkar.",
+        "🏰 Architectural Features: Known for intricate carvings and a gold-plated spire.",
+        "🎉 Major Festivals: Millions visit, especially during Maha Shivaratri, to perform rituals and seek blessings."
+    ],
+    "highlights-krishna": [
+        "👶 Lord Krishna's Birth: The prison cell where Krishna was born to Yashoda and Vasudeva.",
+        "🏰 Historical Destruction: The original temple was destroyed by Muslim invaders, particularly by Emperor Aurangzeb in 1669.",
+        "🕌 Adjacent Structure: The current temple is located near the Shahi Idgah mosque, a symbol of the site’s turbulent history.",
+        "🏛️ Current Temple: Built in the 19th century with contributions from various rulers.",
+        "🎉 Janmashtami: The most important festival here, attracting thousands of devotees annually."
+    ],
+    "highlights-chandi": [
+        "👑 Historical Significance: Believed to have been built by Adi Shankaracharya in the 8th century, later reconstructed in 1929 by King Suchat Singh.",
+        "🏞️ Location: Situated on Neel Parvat Hill, offering stunning views of Haridwar and the Ganges.",
+        "🏃 Access: Can be reached by a trek or a scenic ropeway ride.",
+        "🛕 Divine Legend: Goddess Chandi is believed to have defeated the demon brothers Shumbha and Nishumbha here.",
+        "🙏 Navratri Celebrations: A major site of pilgrimage during Navratri, attracting devotees from all over."
+    ],
+    "highlights-durga": [
+        "🐒 Monkey Temple: Known for its red-colored structure and the presence of many monkeys in the area.",
+        "🏞️ Sacred Pond: Surrounded by the sacred Durga Kund, adding to its divine atmosphere.",
+        "🌸 Self-Manifested Idol: The idol of Goddess Durga is believed to be self-manifested (Swayambhu), adding to its spiritual significance.",
+        "🎉 Navratri Festival: Major celebrations during Navratri, with thousands of devotees offering prayers.",
+        "🔴 Striking Architecture: The temple’s red-colored structure is distinctive and powerful, symbolizing the goddess’s strength."
+    ]
+};
+
+// Open popup when "Read More" is clicked
+document.querySelectorAll(".read-more").forEach(button => {
+    button.addEventListener("click", function () {
+        const templeId = this.getAttribute("id"); // Get ID of clicked button
+        if (popupData[templeId]) {
+            document.getElementById("popupTitle").innerText = popupData[templeId].title;
+            document.getElementById("popupContent1").innerText = popupData[templeId].content1;
+            document.getElementById("popupContent2").innerText = popupData[templeId].content2;
+            document.getElementById("popupContent3").innerText = popupData[templeId].content3;
+            document.getElementById("popupContent4").innerText = popupData[templeId].content4;
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("historyPopup").style.display = "block";
+        }
+    });
+});
+
+// Close popup when "Close" button is clicked
+document.getElementById
+
+    // Close popup when "Close" button is clicked
+    document.getElementById("closePopup").addEventListener("click", function () {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("historyPopup").style.display = "none";
+    });
+});
+
+         document.addEventListener("DOMContentLoaded", function () {
+            // Image slider for each temple
+            document.querySelectorAll(".image-section").forEach((section) => {
+                let images = section.querySelectorAll(".image");
+                let radios = section.querySelectorAll(".radio-btn");
+                let currentIndex = 0;
+
+                function switchImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle("hidden", i !== index);
+                        radios[i].checked = i === index;
+                    });
+                    currentIndex = index;
+                }
+
+                radios.forEach((radio, index) => {
+                    radio.addEventListener("change", () => switchImage(index));
+                });
+
+                setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % images.length;
+                    switchImage(nextIndex);
+                }, 3000);
+            });
+
+        });
+        
+
+        // Page Navigation
+        document.getElementById('page2').addEventListener('click', function() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        });
+
+        document.getElementById('page3').addEventListener('click', function() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+        });
+
+        document.getElementById('page4').addEventListener('click', function() {
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        });
+
+        // Prevent page switch when interacting with input fields
+document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    input.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+document.getElementById("getTravelTimeButton").addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+// Prevent page switch when interacting with input fields and search button
+document.querySelectorAll('input[type="text"], button.search-button').forEach(element => {
+    element.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    element.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            let menu = document.getElementById("menuDrawer");
+            let menuIcon = document.querySelector(".menu-icon");
+
+            // If clicked outside menu and not on the menu button
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove("open");
+            }
+        });
+
+
+
+        const images = document.querySelectorAll(".image");
+const radios = document.querySelectorAll(".radio-btn");
+
+radios.forEach((radio, index) => {
+    radio.addEventListener("change", () => {
+        images.forEach(img => img.classList.add("hidden"));
+        images[index].classList.remove("hidden");
+    });
+});
+
+    </script>
+</body>
+</html>

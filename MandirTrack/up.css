@@ -1,0 +1,417 @@
+/* Global styles */
+body {
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Menu bar (Top) */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #ff9800, #e65100);
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Stick the menu to the top */
+    top: 0; /* Align to the top of the page */
+    left: 0; /* Ensure it spans the whole width */
+    width: 100%; /* Ensure it takes the full width of the page */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.menu-title {
+    margin-left: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Menu icon */
+.menu-icon {
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+
+
+/* Sidebar Menu */
+.menu-drawer {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff9800, #e65100);
+    transition: left 0.4s ease-in-out;
+    padding-top: 50px;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow-y: auto; /* Ensures the sidebar can scroll if content exceeds the height */
+}
+
+/* When menu is open */
+.menu-drawer.open {
+    left: 0;
+}
+
+/* Menu List */
+.menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-drawer ul li {
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-drawer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.menu-drawer ul li:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+}
+
+/* Close animation */
+.menu-drawer ul li a:hover {
+    color: #ffeb3b;
+}
+
+/* Scrollbar customization */
+.menu-drawer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu-drawer::-webkit-scrollbar-thumb {
+    background-color: #e65100; /* Darker orange thumb */
+    border-radius: 5px;
+}
+
+.menu-drawer::-webkit-scrollbar-track {
+    background-color: #ff6f00; /* Orange track */
+}
+
+
+/* Uttar Pradesh content */
+.up-content {
+    padding: 80px 30px 50px;
+    text-align: center;
+    background-color: #ecbf7a;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: transform 0.3s ease-out;
+}
+
+/* Title of the page */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Temple Sections */
+.temple {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.temple:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.temple h2 {
+    font-size: 24px;
+    color: #e65100;
+    margin-bottom: 10px;
+}
+
+.temple ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.temple ul li {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .temple {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+
+/* Main Content Styling */
+.main-content {
+    padding: 20px 20px;  /* Padding for top/bottom and left/right */
+    text-align: center;  /* Center the content */
+    background-color: #FFF3E0;  /* Light orange background */
+    border-radius: 250px;  /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+}
+
+.main-content h1{
+    color: #b43f2d;
+    font-size: 24px;
+    font-weight: bold;  /* Normal weight for subheading */
+    margin-top: 90px;
+
+}
+
+/* Main Content Title Styling */
+.main-content h2 {
+    font-size: 20px;  /* Slightly smaller font size */
+    color: #5A3E2B;  /* Dark brown color for the subheading */
+    font-weight: normal;  /* Normal weight for subheading */
+    margin-top: 20px;  /* Margin top for spacing */
+}
+
+
+/* General Book Format Styles */
+.book-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 60px auto;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.book-page {
+    flex: 1;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.book-page:hover {
+    transform: rotateY(10deg);
+}
+
+/* Image Section */
+.image-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(145deg, #f39c12, #e67e22);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.image-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensures responsiveness */
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 400px;
+    width: 400px;  /* Set a fixed width */
+    height: 400px; /* Set a fixed height */
+    object-fit: cover; /* Ensures images maintain aspect ratio without stretching */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.radio-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.radio-btn {
+    margin: 0 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.radio-btn:checked {
+    background-color: #9e3e24;
+}
+
+
+/* Full-width row styling */
+.full-width-row {
+    margin-top: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Hidden Image Class */
+.hidden {
+    display: none;
+}
+
+/* Add additional styles as needed */
+
+/* Content Section */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    padding-top: 5px;
+}
+
+/* Section Titles and Content Layout */
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #e67e22;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+p, ul {
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Styled Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+ul li strong {
+    color: #b43f2d;
+    font-weight: bold;
+}
+
+/* Simplified Section Styling (No card effects) */
+.section {
+    margin-bottom: -60px;  /* Reduced space between sections */
+    padding: 20px;
+    color: #2c3e50;
+    background-color: transparent;  /* No gradient or background */
+    box-shadow: none;  /* No shadow effect */
+    border: none;  /* No border */
+    animation: none;  /* Removed animation */
+    text-align: left;
+}
+
+/* Remove Hover Effects */
+.section:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+/* Add gradient backgrounds on hover for title */
+h2:hover {
+    color: #f39c12;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styling */
+button {
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;  /* Single column layout */
+    }
+
+    .image-section {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .content-section {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.4em;  /* Adjusted heading size for smaller screens */
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}

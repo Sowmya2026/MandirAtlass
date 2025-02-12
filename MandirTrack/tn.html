@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttar Pradesh Temples | MandirAtlas</title>
+    <link rel="stylesheet" href="up.css"> <!-- Link to your common CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu_open" />
+    <style>
+       .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
+    z-index: 999;
+}
+
+/* Popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    max-width: 600px;
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Lora', serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Popup Title */
+.popup h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Popup Content */
+.popup p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Close Button */
+.popup button {
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup button:hover {
+    background-color: #e68a00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        padding: 20px;
+    }
+    .popup h2 {
+        font-size: 20px;
+    }
+    .popup p {
+        font-size: 15px;
+    }
+    .popup button {
+        font-size: 14px;
+    }
+}
+.read-more {
+  position: absolute;
+  bottom: 10px; /* Adjust this value to move it up or down */
+  right: 10px; /* Adjust this value to move it left or right */
+}
+
+
+        /* Travel Page Styling */
+        .travel-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .travel-section input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        .travel-section button {
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .travel-section button:hover {
+            background-color: #e68a00;
+        }
+        .travel-results {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <span class="material-symbols-outlined menu-icon" onclick="toggleMenu()">menu_open</span>
+        <h1 class="menu-title">MandirAtlas</h1>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav id="menuDrawer" class="menu-drawer">
+        <ul>
+            <li><a href="file:///F:/MandirTrack/up.html" onclick="toggleMenu();">🏛️ Uttar Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/tn.html" onclick="toggleMenu();">🏯 Tamil Nadu</a></li>
+            <li><a href="file:///F:/MandirTrack/tg.html" onclick="toggleMenu();">🛕 Telangana</a></li>
+            <li><a href="file:///F:/MandirTrack/ap.html" onclick="toggleMenu();">🕉️ Andhra Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/k.html" onclick="toggleMenu();">🌺 Karnataka</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Rajasthan</a></li>
+            <li><a href="#" onclick="toggleMenu();">🏯 Maharashtra</a></li>
+            <li><a href="#" onclick="toggleMenu();">🔱 Gujarat</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌿 West Bengal</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌊 Kerala</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Madhya Pradesh</a></li>
+            <li><a href="#" onclick="toggleMenu();">🐘 Odisha</a></li>
+            <li><a href="#" onclick="toggleMenu();">🥁 Punjab</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌾 Bihar</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌸 Assam</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h1>Temples in Tamil Nadu</h1>
+        <h2>Discover the most famous temples in Tamil Nadu</h2>
+
+    </div>
+
+    <div class="book-container">
+        <!-- Page 1 (Image and Title Section) -->
+        <div class="book-page image-page" id="page1">
+            <div class="image-section">
+                <h2>1.🔱 Meenakshi Amman Temple</h2>
+                <div class="image-container">
+                    <img class="image" src="Ethereal beauty.jpg">
+                    <img class="image hidden" src="Pillar Hall of Meenakshi Amman Temple.jpg">
+                    <img class="image hidden" src="tiruchendur, tamil nadu.jpg">
+                </div>
+                <div class="radio-buttons">
+                    <input type="radio" name="image-meenakshi" class="radio-btn" checked>
+                    <input type="radio" name="image-meenakshi" class="radio-btn">
+                    <input type="radio" name="image-meenakshi" class="radio-btn">
+                </div>
+            </div>
+        </div>
+    
+        <!-- Page 2 (Content Section) -->
+        <div class="book-page content-page" id="page2">
+            <div class="content-section">
+                <div class="section">
+                    <h3>📍 Temple Introduction</h3>
+                    <ul>
+                        <li><strong>📍 Location:</strong> Madurai, Tamil Nadu</li>
+                        <li><strong>🕉️ Deity:</strong> Goddess Meenakshi</li>
+                        <li><strong>🏛️ Architecture:</strong> Dravidian-style</li>
+                        <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>🕯️ Rituals & Festivals</h3>
+                    <ul>
+                        <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                        <li><strong>Major Festivals:</strong> Meenakshi Thirukalyanam, Chithirai Festival</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>🚶 Visitor Information & Tips</h3>
+                    <ul>
+                        <li><strong>⏰ Timings:</strong> 5:00 AM – 12:00 PM, 4:00 PM – 10:00 PM</li>
+                        <li><strong>🎟 Entry Fee:</strong> Free (VIP Darshan ₹1000)</li>
+                        <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                    </ul>
+                </div>
+                <button class="read-more" id="readMore-meenakshi">Read More →</button>
+            </div>
+        </div>
+    
+        <!-- Page 3 (User Reviews & Additional Info) -->
+        <div class="book-page content-page" id="page3" style="display: none;">
+            <div class="content-section">
+                <div class="section">
+                    <h3>🗺️ Nearby Attractions</h3>
+                    <ul>
+                        <li><strong>🛣️ 2 km</strong> → Thirumalai Nayak Palace</li>
+                        <li><strong>🛣️ 5 km</strong> → Gandhi Memorial Museum</li>
+                        <li><strong>🛣️ 10 km</strong> → Alagar Koyil</li>
+                        <li><strong>🛣️ 12 km</strong> → Vaigai Dam</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>📜 History & Legends</h3>
+                    <p>Meenakshi Amman Temple is a historic Hindu temple dedicated to Goddess Meenakshi, an incarnation of Parvati. Located in Madurai, Tamil Nadu, it is renowned for its stunning Dravidian architecture, intricate carvings, and 14 gopurams (gateway towers). The temple's origin is believed to date back over 2,000 years, with later reconstructions, especially by the Nayak dynasty.</p>
+                </div>
+    
+                <div class="section">
+                    <h3>🌟 User Reviews & Ratings</h3>
+                    <p>User Reviews & Ratings: 4.9/5</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Page 4 (Travel Information) -->
+        <div class="book-page content-page" id="page4" style="display: none;">
+            <div class="travel-section">
+                <h3>🚗 Travel to Meenakshi Amman Temple</h3>
+                <input type="text" id="startLocation" placeholder="Enter Your Location">
+                <button onclick="calculateTravelTime()">Get Travel Time</button>
+                <div class="travel-results" id="travelResults"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Temple: Brihadeeswarar Temple -->
+    <div class="book-container">
+        <div class="book-page image-page" id="page1">
+            <div class="image-section">
+                <h2>2.🔱 Brihadeeswarar Temple</h2>
+                <div class="image-container">
+                    <img class="image" src="Brihadeeswarar Temple.jpg">
+                    <img class="image hidden" src="Brihadeeswarar Closeup.jpg">
+                    <img class="image hidden" src="Brihadeeswarar Interior.jpg">
+                </div>
+                <div class="radio-buttons">
+                    <input type="radio" name="image-brihadeeswarar" class="radio-btn" checked>
+                    <input type="radio" name="image-brihadeeswarar" class="radio-btn">
+                    <input type="radio" name="image-brihadeeswarar" class="radio-btn">
+                </div>
+            </div>
+        </div>
+    
+        <div class="book-page content-page" id="page2">
+            <div class="content-section">
+                <div class="section">
+                    <h3>📍 Temple Introduction</h3>
+                    <ul>
+                        <li><strong>📍 Location:</strong> Thanjavur, Tamil Nadu</li>
+                        <li><strong>🕉️ Deity:</strong> Lord Shiva</li>
+                        <li><strong>🏛️ Architecture:</strong> Dravidian-style</li>
+                        <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>🕯️ Rituals & Festivals</h3>
+                    <ul>
+                        <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                        <li><strong>Major Festivals:</strong> Maha Shivaratri, Pongal</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>🚶 Visitor Information & Tips</h3>
+                    <ul>
+                        <li><strong>⏰ Timings:</strong> 6:00 AM – 12:30 PM, 4:00 PM – 9:00 PM</li>
+                        <li><strong>🎟 Entry Fee:</strong> ₹50 (VIP Darshan ₹500)</li>
+                        <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                    </ul>
+                </div>
+                <button class="read-more" id="readMore-brihadeeswarar">Read More →</button>
+            </div>
+        </div>
+    
+        <div class="book-page content-page" id="page3" style="display: none;">
+            <div class="content-section">
+                <div class="section">
+                    <h3>🗺️ Nearby Attractions</h3>
+                    <ul>
+                        <li><strong>🛣️ 1 km</strong> → Brihadeeswarar Fort</li>
+                        <li><strong>🛣️ 3 km</strong> → Thanjavur Palace</li>
+                        <li><strong>🛣️ 5 km</strong> → Saraswathi Mahal Library</li>
+                        <li><strong>🛣️ 7 km</strong> → Vallam Gopuram</li>
+                    </ul>
+                </div>
+    
+                <div class="section">
+                    <h3>📜 History & Legends</h3>
+                    <p>The Brihadeeswarar Temple, built by Raja Raja Chola in the 11th century, is a UNESCO World Heritage Site and one of the largest temples in India. Known for its magnificent architecture, the temple is dedicated to Lord Shiva and is an example of Dravidian architecture at its best.</p>
+                </div>
+    
+                <div class="section">
+                    <h3>🌟 User Reviews & Ratings</h3>
+                    <p>User Reviews & Ratings: 4.7/5</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="book-page content-page" id="page4"style="display: none;">
+            <div class="travel-section">
+                <h3>🚗 Travel to Brihadeeswarar Temple</h3>
+                <input type="text" id="startLocation" placeholder="Enter Your Location">
+                <button onclick="calculateTravelTime()">Get Travel Time</button>
+                <div class="travel-results" id="travelResults"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Temple: Kapaleeshwarar Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>3.🔱 Kapaleeshwarar Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Kapaleeshwarar Temple.jpg">
+                <img class="image hidden" src="Kapaleeshwarar Closeup.jpg">
+                <img class="image hidden" src="Kapaleeshwarar Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-kapaleeshwarar" class="radio-btn" checked>
+                <input type="radio" name="image-kapaleeshwarar" class="radio-btn">
+                <input type="radio" name="image-kapaleeshwarar" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Mylapore, Chennai, Tamil Nadu</li>
+                    <li><strong>🕉️ Deity:</strong> Lord Kapaleeshwarar (Shiva)</li>
+                    <li><strong>🏛️ Architecture:</strong> Dravidian-style</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Panguni Uthiram, Maha Shivaratri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 5:30 AM – 12:30 PM, 4:00 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-kapaleeshwarar">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3"style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 1 km</strong> → San Thome Basilica</li>
+                    <li><strong>🛣️ 3 km</strong> → Marina Beach</li>
+                    <li><strong>🛣️ 5 km</strong> → Fort St. George</li>
+                    <li><strong>🛣️ 6 km</strong> → Government Museum</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>Kapaleeshwarar Temple in Mylapore is dedicated to Lord Shiva, and is an important spiritual hub in Chennai. The temple is known for its grand gopuram (gateway tower) and its association with the legend of the sea-born deity. The original temple is believed to have been built by the Pallavas in the 7th century.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.8/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Kapaleeshwarar Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Fourth Temple: Ranganathaswamy Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>4.🔱 Ranganathaswamy Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Ranganathaswamy Temple.jpg">
+                <img class="image hidden" src="Ranganathaswamy Closeup.jpg">
+                <img class="image hidden" src="Ranganathaswamy Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-ranganathaswamy" class="radio-btn" checked>
+                <input type="radio" name="image-ranganathaswamy" class="radio-btn">
+                <input type="radio" name="image-ranganathaswamy" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Srirangam, Tamil Nadu</li>
+                    <li><strong>🕉️ Deity:</strong> Lord Ranganatha (Vishnu)</li>
+                    <li><strong>🏛️ Architecture:</strong> Dravidian-style</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Vaikuntha Ekadashi, Panguni Uthiram</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:30 PM, 4:30 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-ranganathaswamy">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 1 km</strong> → Kaveri River</li>
+                    <li><strong>🛣️ 4 km</strong> → Jambukeswarar Temple</li>
+                    <li><strong>🛣️ 8 km</strong> → Rock Fort Temple</li>
+                    <li><strong>🛣️ 10 km</strong> → Ucchi Pillayar Temple</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Ranganathaswamy Temple is one of the largest and most revered Vishnu temples in India, located in Srirangam. The temple is known for its massive gopurams, grand architecture, and its historical significance in Vaishnavism. It is one of the 108 divya desams (holy shrines) of Lord Vishnu.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.9/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Ranganathaswamy Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Fifth Temple: Chidambaram Nataraja Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>5.🔱 Chidambaram Nataraja Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Chidambaram Nataraja Temple.jpg">
+                <img class="image hidden" src="Chidambaram Nataraja Closeup.jpg">
+                <img class="image hidden" src="Chidambaram Nataraja Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-chidambaram" class="radio-btn" checked>
+                <input type="radio" name="image-chidambaram" class="radio-btn">
+                <input type="radio" name="image-chidambaram" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Chidambaram, Tamil Nadu</li>
+                    <li><strong>🕉️ Deity:</strong> Lord Nataraja (Shiva)</li>
+                    <li><strong>🏛️ Architecture:</strong> Dravidian-style</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Maha Shivaratri, Arudra Darshanam</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:00 PM, 4:00 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-chidambaram">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 1 km</strong> → Thillai Kali Amman Temple</li>
+                    <li><strong>🛣️ 4 km</strong> → Pichavaram Mangrove Forest</li>
+                    <li><strong>🛣️ 8 km</strong> → Vaitheeswaran Koil</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Chidambaram Nataraja Temple is a famous Hindu temple dedicated to Lord Shiva in the form of Nataraja, the cosmic dancer. The temple is one of the Pancha Sabhai, representing the five cosmic dance forms of Lord Shiva. It holds great significance for devotees of Shaivism and is a center for classical arts and rituals.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.7/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Chidambaram Nataraja Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+    
+  <!-- Popup for Extended History -->
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="historyPopup">
+      <h2 id="popupTitle"></h2>
+      <p id="popupContent1"></p>
+      <p id="popupContent2"></p>
+      <p id="popupContent3"></p>
+      <p  id="popupContent4"></p>
+      <button id="closePopup">Close</button>
+  </div>
+
+          <!-- External JavaScript -->
+  <script src="scripte.js"></script>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            // Image slider for each temple
+            document.querySelectorAll(".image-section").forEach((section) => {
+                let images = section.querySelectorAll(".image");
+                let radios = section.querySelectorAll(".radio-btn");
+                let currentIndex = 0;
+
+                function switchImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle("hidden", i !== index);
+                        radios[i].checked = i === index;
+                    });
+                    currentIndex = index;
+                }
+
+                radios.forEach((radio, index) => {
+                    radio.addEventListener("change", () => switchImage(index));
+                });
+
+                setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % images.length;
+                    switchImage(nextIndex);
+                }, 3000);
+            });
+
+        });
+        
+
+        // Page Navigation
+        document.getElementById('page2').addEventListener('click', function() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        });
+
+        document.getElementById('page3').addEventListener('click', function() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+        });
+
+        document.getElementById('page4').addEventListener('click', function() {
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        });
+
+        // Prevent page switch when interacting with input fields
+document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    input.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+document.getElementById("getTravelTimeButton").addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+// Prevent page switch when interacting with input fields and search button
+document.querySelectorAll('input[type="text"], button.search-button').forEach(element => {
+    element.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    element.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            let menu = document.getElementById("menuDrawer");
+            let menuIcon = document.querySelector(".menu-icon");
+
+            // If clicked outside menu and not on the menu button
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove("open");
+            }
+        });
+
+
+
+        const images = document.querySelectorAll(".image");
+const radios = document.querySelectorAll(".radio-btn");
+
+radios.forEach((radio, index) => {
+    radio.addEventListener("change", () => {
+        images.forEach(img => img.classList.add("hidden"));
+        images[index].classList.remove("hidden");
+    });
+});
+       
+    </script>
+</body>
+</html>

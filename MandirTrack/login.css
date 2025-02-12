@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('GW-Generated-Image-2_9_2025__12_11_52_PM.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .login-box {
+    background-color: rgba(255, 255, 255, 0.7); /* Increased transparency */
+    padding: 60px;
+    width: 400px; /* Increased width */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
+    border-radius: 15px; /* More rounded corners */
+    text-align: center;
+    animation: fadeIn 1.5s ease, slideUp 1s ease-out;
+  }
+  
+  h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #a72c26; /* Darker text color for better readability */
+  }
+  
+  .textbox {
+    margin-bottom: 25px; /* Increased space between fields */
+    animation: fieldAnimation 1s ease-out;
+  }
+  
+  .textbox input {
+    width: 100%;
+    color:white;
+    padding: 15px; /* Larger padding */
+    border: 2px solid #a9655d;
+    border-radius: 10px; /* Rounder borders */
+    font-size: 18px; /* Larger text */
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+  }
+  
+  .textbox input:focus {
+    border-color: #f2a300; /* Lighter rust color for border */
+    box-shadow: 0 0 8px rgba(242, 163, 0, 0.5); /* Lighter rust glow effect */
+    background-color: #fff7e0; /* Lighter rust color background */
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #ef6225; /* Rust color */
+    color: #fff;
+    font-size: 20px; /* Larger font size */
+    cursor: pointer;
+    border-radius: 10px; /* Rounder corners */
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #f17136; /* Darker shade of rust for hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fieldAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

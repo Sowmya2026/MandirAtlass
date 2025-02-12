@@ -1,0 +1,702 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f7f7f7;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Header Content */
+  .header {
+    background-color: #ffffff;
+    padding: 3px;
+    padding-top: 0px;
+  }
+  
+  .header .logo {
+    text-align: center;
+    color: white;
+  
+}
+
+  
+  .header nav {
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 16px;
+  }
+  
+  .header nav ul {
+    list-style: none;
+    padding-top: 1px;
+    padding: 8px;
+  }
+  
+  .header nav ul li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  .header nav ul li a {
+    color: rgb(191, 122, 70);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
+    transition: color 0.3s ease;
+  }
+  
+  .header nav ul li a:hover {
+    color: #a03104;
+  }
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 600px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  overflow: hidden; /* Ensure no scrollbars */
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps the slideshow in the background */
+  overflow: hidden;
+}
+
+/* Slides */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Slide images */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fade-In Effect on Hero Section */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Radio Buttons for Slide Navigation */
+.radio-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.radio-buttons input {
+  margin: 0 5px;
+  cursor: pointer;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #fff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.radio-buttons input:checked {
+  background-color: #ff7b00; /* Highlight the selected slide */
+}
+
+.radio-buttons input:hover {
+  transform: scale(1.2);
+}
+
+/* Adjust Hero Content for better positioning */
+.hero-content {
+  z-index: 1;
+}
+
+/* Adjust button styles */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cta-buttons .cta {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #ff7b00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-buttons .cta:hover {
+  background-color: #e06b00;
+}
+
+/* Slide Animation - Show only the active slide */
+@keyframes fade {
+  0% {
+      opacity: 0;
+  }
+  25%, 75% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/* Apply fade-in animation to each slide */
+.slide:nth-child(1) {
+  animation: fade 9s infinite;
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  animation: fade 9s infinite;
+  animation-delay: 3s;
+}
+
+.slide:nth-child(3) {
+  animation: fade 9s infinite;
+  animation-delay: 6s;
+}
+
+/* Optional fade-in effect for individual slide change */
+.fade {
+  animation: fade 9s infinite;
+}
+
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensures the content stays above the slideshow */
+    color: rgb(255, 255, 255); /* Text color */
+    margin-bottom: 30px; /* Adds space below the hero content */
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 600px; /* Fixed width for the search bar */
+    height: 40px;
+    margin: 0 auto; /* Centers the search bar */
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.search-text {
+    position: absolute;
+    left: 15px;
+    color: orange;
+    font-size: 16px;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1; /* Ensure it stays visible by default */
+}
+
+.search-bar {
+    width: 100%; /* Make the input take up the full width */
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
+
+.search-bar:focus + .search-text {
+    opacity: 0; /* Hide the placeholder text when the input is focused */
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    font-size: 24px;
+    color: orange;
+}
+
+.cta-buttons {
+    margin-top: 30px; /* Adds space between the search bar and CTA buttons */
+}
+
+.cta-buttons .cta {
+    background-color: #ff6600;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-buttons .cta:hover {
+    background-color: #e55c00;
+}
+
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Featured Section */
+  .featured {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    padding: 110px 110px;
+    background-color: #f9f9f9;
+  }
+  
+  .left-side {
+    flex: 2.5;
+  }
+  
+  .category-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .card {
+    display: flex;
+    width: 95%;
+    height: 200px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    background-color: #e55c00;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-container {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .card:hover .card-img {
+    transform: scale(1.1);
+  }
+  
+  .card-content {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .card-content h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .view-page-link {
+    font-size: 1.1em;
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .view-page-link:hover {
+    color: white;
+    background-color: #ff6600;
+  }
+  
+  /* Right Side */
+  .right-side {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container {
+    position: relative;
+    width: 85%;
+    height: 85%;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .right-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: transform 1s ease-out;
+  }
+  
+  .image-container:hover .right-image {
+    transform: scale(1.1);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .circle {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 250px;
+    background-color: #ff6600;
+    border: 8px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .circle h2 {
+    font-size: 1.8em;
+    font-family: 'Merriweather', serif;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    .featured {
+      flex-direction: column;
+    }
+    .left-side, .right-side {
+      flex: 1;
+      width: 100%;
+    }
+    .category-cards {
+      grid-template-columns: 1fr;
+    }
+    .circle {
+      width: 180px;
+      height: 180px;
+      bottom: -30px;
+    }
+  }
+  
+h2{
+    font-size: 1.8em;
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: 'Merriweather', serif;
+    color: #c16e3e;
+}
+.popular-temples {
+    padding: 10px 10px;
+    position: relative;
+    overflow: hidden; /* Hide images when they move out of view */
+  }
+  
+  .temple-slider {
+    display: flex;
+    overflow: hidden; /* Hide content that overflows */
+  }
+  
+  .temple-cards {
+    display: flex;
+    gap: 20px;
+    animation: slideLeft 10s linear infinite; /* Continuous left sliding animation */
+  }
+  
+  .temple-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevent shrinking of images */
+  }
+  
+  .temple-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure the image covers the area and maintains aspect ratio */
+    border-radius: 10px;
+  }
+  
+  /* Text styling */
+  h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 15px;
+  }
+  
+  p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .map-link {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .map-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Continuous sliding from right to left */
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0); /* Start position */
+    }
+    100% {
+      transform: translateX(-80%); /* Move completely to the left */
+    }
+  }
+  
+  /* Optional: Add smooth scroll */
+  .temple-slider::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .temple-slider::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+  }
+  
+  
+  footer {
+    background-color: #b26429;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+  }
+  
+  .footer-links ul li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  .footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-media a {
+    padding-top:10px ;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .social-media a:hover {
+    color: #ff6600;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(30px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Footer Styling */
+footer {
+  background-color: #b26429;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer-links a, .social-media a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-details {
+  color: #f9f9f9;
+  text-align: center;
+}
+
+.contact-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* Privacy Policy Popup */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #222;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.white-text {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Optional CSS for styling radio buttons */
+.radio-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.radio-buttons input {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+  

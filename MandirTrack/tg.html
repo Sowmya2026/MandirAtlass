@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttar Pradesh Temples | MandirAtlas</title>
+    <link rel="stylesheet" href="up.css"> <!-- Link to your common CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu_open" />
+    <style>
+        
+       .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
+    z-index: 999;
+}
+
+/* Popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    max-width: 600px;
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Lora', serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Popup Title */
+.popup h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Popup Content */
+.popup p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Close Button */
+.popup button {
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup button:hover {
+    background-color: #e68a00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        padding: 20px;
+    }
+    .popup h2 {
+        font-size: 20px;
+    }
+    .popup p {
+        font-size: 15px;
+    }
+    .popup button {
+        font-size: 14px;
+    }
+}
+.read-more {
+  position: absolute;
+  bottom: 10px; /* Adjust this value to move it up or down */
+  right: 10px; /* Adjust this value to move it left or right */
+}
+
+
+        /* Travel Page Styling */
+        .travel-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .travel-section input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        .travel-section button {
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .travel-section button:hover {
+            background-color: #e68a00;
+        }
+        .travel-results {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <span class="material-symbols-outlined menu-icon" onclick="toggleMenu()">menu_open</span>
+        <h1 class="menu-title">MandirAtlas</h1>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav id="menuDrawer" class="menu-drawer">
+        <ul>
+            <li><a href="file:///F:/MandirTrack/up.html" onclick="toggleMenu();">🏛️ Uttar Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/tn.html" onclick="toggleMenu();">🏯 Tamil Nadu</a></li>
+            <li><a href="file:///F:/MandirTrack/tg.html" onclick="toggleMenu();">🛕 Telangana</a></li>
+            <li><a href="file:///F:/MandirTrack/ap.html" onclick="toggleMenu();">🕉️ Andhra Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/k.html" onclick="toggleMenu();">🌺 Karnataka</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Rajasthan</a></li>
+            <li><a href="#" onclick="toggleMenu();">🏯 Maharashtra</a></li>
+            <li><a href="#" onclick="toggleMenu();">🔱 Gujarat</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌿 West Bengal</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌊 Kerala</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Madhya Pradesh</a></li>
+            <li><a href="#" onclick="toggleMenu();">🐘 Odisha</a></li>
+            <li><a href="#" onclick="toggleMenu();">🥁 Punjab</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌾 Bihar</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌸 Assam</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h1>Temples in Telangana</h1>
+        <h2>Discover the most famous temples in Telangana</h2>
+
+    </div>
+
+    <!-- First Temple: Sri Jagannath Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>1.🔱 Sri Jagannath Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Birla Mandir- Wah Hyderabad.jpg">
+                <img class="image hidden" src="Birla mandir.jpg">
+                <img class="image hidden" src="Birla Mandir Temple Timings, Ticket Price.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-jagannath" class="radio-btn" checked>
+                <input type="radio" name="image-jagannath" class="radio-btn">
+                <input type="radio" name="image-jagannath" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Banjara Hills, Hyderabad, Telangana</li>
+                    <li><strong>🕉️ Deity:</strong> Lord Jagannath</li>
+                    <li><strong>🏛️ Architecture:</strong> Modern Hindu temple architecture</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Rath Yatra, Maha Shivaratri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:00 PM, 4:00 PM – 8:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-jagannath">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 2 km</strong> → Buddha Statue</li>
+                    <li><strong>🛣️ 3 km</strong> → Hussain Sagar Lake</li>
+                    <li><strong>🛣️ 5 km</strong> → Golconda Fort</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>Sri Jagannath Temple in Hyderabad is dedicated to Lord Jagannath, built as a replica of the famous Puri Jagannath Temple in Odisha. The temple is known for its vibrant Rath Yatra festival, attracting devotees from across the region.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.5/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Sri Jagannath Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Second Temple: Bhadrakali Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>2.🔱 Bhadrakali Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Bhadrakali Temple Warangal.jpg">
+                <img class="image hidden" src="Bhadrakali Temple Closeup.jpg">
+                <img class="image hidden" src="Bhadrakali Temple Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-bhadrakali" class="radio-btn" checked>
+                <input type="radio" name="image-bhadrakali" class="radio-btn">
+                <input type="radio" name="image-bhadrakali" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Warangal, Telangana</li>
+                    <li><strong>🕉️ Deity:</strong> Goddess Bhadrakali</li>
+                    <li><strong>🏛️ Architecture:</strong> Kakatiya-style architecture</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Dussehra, Navaratri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:00 PM, 4:00 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-bhadrakali">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 1 km</strong> → Warangal Fort</li>
+                    <li><strong>🛣️ 2 km</strong> → Thousand Pillar Temple</li>
+                    <li><strong>🛣️ 3 km</strong> → Ramappa Temple</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Bhadrakali Temple is dedicated to Goddess Bhadrakali, a fierce form of Goddess Kali. It is one of the most famous temples in Telangana and is renowned for its historic architecture and the grandeur of its temple festival, especially during Dussehra.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.6/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Bhadrakali Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Third Temple: Srisailam Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>3.🔱 Srisailam Temple (Sri Mallikarjuna Swamy Temple)</h2>
+            <div class="image-container">
+                <img class="image" src="Srisailam Temple.jpg">
+                <img class="image hidden" src="Srisailam Temple Closeup.jpg">
+                <img class="image hidden" src="Srisailam Temple Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-srisailam" class="radio-btn" checked>
+                <input type="radio" name="image-srisailam" class="radio-btn">
+                <input type="radio" name="image-srisailam" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Srisailam, Telangana</li>
+                    <li><strong>🕉️ Deity:</strong> Lord Mallikarjuna (Shiva) & Goddess Bhramaramba (Parvati)</li>
+                    <li><strong>🏛️ Architecture:</strong> Dravidian-style architecture</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Maha Shivaratri, Bhramaramba Kalyanam</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:00 PM, 4:00 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-srisailam">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 5 km</strong> → Srisailam Dam</li>
+                    <li><strong>🛣️ 8 km</strong> → Pathala Ganga</li>
+                    <li><strong>🛣️ 12 km</strong> → Shikharam</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Srisailam Temple is one of the 12 Jyotirlingas and is revered by Hindus as a sacred site. It is dedicated to Lord Mallikarjuna (Shiva) and Goddess Bhramaramba (Parvati). The temple is located amidst the beautiful Nallamala hills.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.8/5</p>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Srisailam Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+<!-- Fifth Temple: Peddamma Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>5.🔱 Peddamma Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Peddamma Temple Hyderabad.jpg">
+                <img class="image hidden" src="Peddamma Temple Closeup.jpg">
+                <img class="image hidden" src="Peddamma Temple Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-peddamma" class="radio-btn" checked>
+                <input type="radio" name="image-peddamma" class="radio-btn">
+                <input type="radio" name="image-peddamma" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Jubilee Hills, Hyderabad, Telangana</li>
+                    <li><strong>🕉️ Deity:</strong> Goddess Peddamma</li>
+                    <li><strong>🏛️ Architecture:</strong> Traditional Hindu temple architecture</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Bonalu, Ashada Jatara</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:00 PM, 4:00 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-peddamma">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 5 km</strong> → Hussain Sagar Lake</li>
+                    <li><strong>🛣️ 7 km</strong> → Golconda Fort</li>
+                    <li><strong>🛣️ 10 km</strong> → Qutb Shahi Tombs</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>Peddamma Temple is dedicated to the goddess Peddamma, an incarnation of Parvati. Located in Jubilee Hills, it attracts thousands of devotees during the Bonalu festival, making it one of the most famous temples in Hyderabad.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.7/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Peddamma Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Sixth Temple: Bhadrachalam Temple -->
+<div class="book-container">
+    <div class="book-page image-page" id="page1">
+        <div class="image-section">
+            <h2>6.🔱 Bhadrachalam Temple</h2>
+            <div class="image-container">
+                <img class="image" src="Bhadrachalam Temple.jpg">
+                <img class="image hidden" src="Bhadrachalam Temple Closeup.jpg">
+                <img class="image hidden" src="Bhadrachalam Temple Interior.jpg">
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" name="image-bhadrachalam" class="radio-btn" checked>
+                <input type="radio" name="image-bhadrachalam" class="radio-btn">
+                <input type="radio" name="image-bhadrachalam" class="radio-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page2">
+        <div class="content-section">
+            <div class="section">
+                <h3>📍 Temple Introduction</h3>
+                <ul>
+                    <li><strong>📍 Location:</strong> Bhadrachalam, Telangana</li>
+                    <li><strong>🕉️ Deity:</strong> Lord Rama</li>
+                    <li><strong>🏛️ Architecture:</strong> Kakatiya style architecture</li>
+                    <li><strong>📅 Best Time to Visit:</strong> October – March</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🕯️ Rituals & Festivals</h3>
+                <ul>
+                    <li><strong>Rituals & Festivals:</strong> Daily Pujas & Aarti Timings</li>
+                    <li><strong>Major Festivals:</strong> Rama Navami, Dussehra</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>🚶 Visitor Information & Tips</h3>
+                <ul>
+                    <li><strong>⏰ Timings:</strong> 6:00 AM – 12:00 PM, 4:00 PM – 9:00 PM</li>
+                    <li><strong>🎟 Entry Fee:</strong> Free</li>
+                    <li><strong>👗 Dress Code:</strong> Traditional attire preferred</li>
+                </ul>
+            </div>
+            <button class="read-more" id="readMore-bhadrachalam">Read More →</button>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page3" style="display: none;">
+        <div class="content-section">
+            <div class="section">
+                <h3>🗺️ Nearby Attractions</h3>
+                <ul>
+                    <li><strong>🛣️ 2 km</strong> → Parnasala</li>
+                    <li><strong>🛣️ 5 km</strong> → Kinnerasani Wildlife Sanctuary</li>
+                    <li><strong>🛣️ 10 km</strong> → Papikondalu</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>📜 History & Legends</h3>
+                <p>The Bhadrachalam Temple is dedicated to Lord Rama, where it is believed that Lord Rama and Sita stayed during their exile. The temple is a prominent pilgrimage site for devotees of Lord Rama and hosts a grand celebration of Rama Navami.</p>
+            </div>
+
+            <div class="section">
+                <h3>🌟 User Reviews & Ratings</h3>
+                <p>User Reviews & Ratings: 4.9/5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-page content-page" id="page4" style="display: none;">
+        <div class="travel-section">
+            <h3>🚗 Travel to Bhadrachalam Temple</h3>
+            <input type="text" id="startLocation" placeholder="Enter Your Location">
+            <button onclick="calculateTravelTime()">Get Travel Time</button>
+            <div class="travel-results" id="travelResults"></div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Popup for Extended History -->
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="historyPopup">
+      <h2 id="popupTitle"></h2>
+      <p id="popupContent1"></p>
+      <p id="popupContent2"></p>
+      <p id="popupContent3"></p>
+      <p  id="popupContent4"></p>
+      <button id="closePopup">Close</button>
+  </div>
+
+
+          <!-- External JavaScript -->
+  <script src="scripte.js"></script>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Popup content data for each Telangana temple
+    const popupData = {
+        "readMore-peddamma": {
+            "title": "Extended History of Peddamma Temple",
+            "content1": "Peddamma Temple is located in the heart of Hyderabad, dedicated to the goddess Peddamma, an incarnation of Goddess Parvati. The temple is one of the most significant Shakti Peethas in the region and attracts a large number of devotees throughout the year, especially during the festival of Bonalu.",
+            "content2": "The origins of the temple are believed to date back to the 14th century when it was established by the Kakatiya rulers. However, the temple gained prominence in the 18th century, especially when the Bonalu festival started being celebrated in honor of the goddess's blessings. The temple’s significance grew steadily, and it became a center of faith for people in the region.",
+            "content3": "Peddamma Temple's architecture is a blend of traditional Hindu temple designs and modern architectural elements. The temple is renowned for its intricate sculptures, vibrant colors, and beautiful carvings of various deities, making it a marvel of craftsmanship.",
+            "content4": "The temple is particularly famous for the Bonalu festival, a celebration of Goddess Peddamma's blessings. During this time, devotees bring offerings of food, turmeric, and flowers as a token of gratitude. The temple continues to be an important pilgrimage site for devotees of Goddess Peddamma, with thousands of visitors each year.",
+            "highlights": [
+                "👑 Devotee's Delight: One of the major Shakti Peethas dedicated to Goddess Peddamma.",
+                "🏛️ Historical Architecture: Built by the Kakatiya dynasty, with a unique blend of traditional and modern architecture.",
+                "🎉 Major Festival: Bonalu – an annual festival where devotees offer food, turmeric, and flowers.",
+                "🏞️ Scenic Location: Located in the heart of Hyderabad, providing a peaceful atmosphere for spiritual practices.",
+                "🙏 Religious Significance: A major temple for devotees of Goddess Peddamma, attracting thousands of pilgrims each year."
+            ]
+        },
+        "readMore-bhadrachalam": {
+            "title": "Extended History of Bhadrachalam Temple",
+            "content1": "The Bhadrachalam Temple, dedicated to Lord Rama, is located in the town of Bhadrachalam in Telangana. It is one of the most important temples in the region and is considered one of the holiest places for devotees of Lord Rama. The temple is situated on the banks of the Godavari River and has a unique historical and religious significance.",
+            "content2": "The temple’s history dates back to the 17th century, when it was established by the saint Bhadradri, who is believed to have performed penance at the site. According to Hindu legends, Lord Rama, during his exile, visited the region and blessed the site, and a temple was later constructed to honor him. The original temple was built by the ruler of Bhadrachalam, Kancherla Gopanna (also known as Bhakta Ramadasu).",
+            "content3": "The Bhadrachalam Temple, though originally a small structure, has undergone several expansions and renovations over the centuries. Today, it is an impressive complex with a tall gopuram (tower), a sacred pond, and several shrines dedicated to other deities, making it a vibrant pilgrimage center.",
+            "content4": "The temple is particularly famous for the Rama Navami festival, when thousands of devotees come to celebrate the birth of Lord Rama. The temple remains a vital religious and cultural hub in the region and continues to draw devotees from across the country, who come to seek blessings and participate in the annual celebrations.",
+            "highlights": [
+                "🕉️ Lord Rama’s Blessing: Dedicated to Lord Rama, located on the banks of the Godavari River.",
+                "🏛️ Historical Importance: Established by saint Bhadradri and later renovated by Bhakta Ramadasu in the 17th century.",
+                "🎉 Festival Celebration: Famous for Rama Navami, attracting thousands of devotees from across India.",
+                "🏞️ Sacred Pond: The temple complex includes a sacred pond, enhancing the temple’s spiritual atmosphere.",
+                "🌿 Pilgrimage Center: An important pilgrimage destination for Lord Rama devotees and a hub of religious activities."
+            ]
+        },
+        "readMore-srisailam": {
+            "title": "Extended History of Srisailam Temple",
+            "content1": "Srisailam Temple, dedicated to Lord Mallikarjuna, an incarnation of Lord Shiva, is located in the Srisailam hills on the banks of the Krishna River in Telangana. It is one of the twelve Jyotirlingas and a major pilgrimage site for devotees of Lord Shiva.",
+            "content2": "The temple’s history can be traced back to the 2nd century CE, though the exact origins are debated. The earliest mention of the temple is found in ancient texts, which suggest that the temple has been revered for thousands of years. It has been a center of pilgrimage and a significant part of the spiritual landscape of southern India.",
+            "content3": "The temple complex has seen several renovations and reconstructions over the centuries. It was initially built by the Satavahana dynasty, and later expanded by various dynasties such as the Chalukyas and the Vijayanagara Empire. The present-day structure retains much of its ancient charm while incorporating elements from different architectural periods.",
+            "content4": "Srisailam is also known for its beautiful surroundings and its proximity to the Srisailam Wildlife Sanctuary. The temple draws thousands of devotees each year, especially during Maha Shivaratri, and is considered a spiritual haven.",
+            "highlights": [
+                "🕉️ Lord Mallikarjuna: One of the twelve Jyotirlingas, an important pilgrimage site for Lord Shiva devotees.",
+                "🏛️ Ancient History: The temple dates back to the 2nd century CE, with a long and rich history.",
+                "🏞️ Scenic Location: Located on the Srisailam hills with breathtaking views of the Krishna River and surrounding wildlife sanctuary.",
+                "🌄 Architecture: A blend of ancient and medieval architecture, with influences from various dynasties.",
+                "🎉 Major Festival: Maha Shivaratri attracts thousands of devotees for spiritual rituals and celebrations."
+            ]
+        },
+        "readMore-bhadrakali": {
+            "title": "Extended History of Bhadrakali Temple",
+            "content1": "Bhadrakali Temple, located in Warangal, is dedicated to Goddess Bhadrakali, an incarnation of Goddess Durga. The temple is a prominent pilgrimage site and one of the oldest and most revered temples in the region.",
+            "content2": "The Bhadrakali Temple is believed to have been constructed during the 7th century by the Chalukya rulers. The temple is situated on a hill, offering a beautiful view of the surrounding landscape. The main deity, Goddess Bhadrakali, is depicted as a fierce form of Durga, and the temple is known for its serene and divine atmosphere.",
+            "content3": "The architecture of the Bhadrakali Temple reflects the rich cultural heritage of the Chalukya period, with intricate carvings and a large, beautiful Nandi statue. Over the years, the temple has been renovated and expanded, but it retains its ancient charm and continues to be an important religious site.",
+            "content4": "The temple is visited by thousands of devotees every year, particularly during festivals like Dussehra and Navratri, when devotees come to offer prayers and seek blessings from the goddess.",
+            "highlights": [
+                "🐅 Goddess Bhadrakali: The temple is dedicated to the fierce form of Goddess Durga, Bhadrakali.",
+                "🏛️ Ancient Architecture: Built during the Chalukya dynasty in the 7th century, showcasing intricate carvings and design.",
+                "🏞️ Hilltop Location: Situated on a hill, providing panoramic views of the surrounding area.",
+                "🎉 Major Festivals: Dussehra and Navratri are major times for worship and celebrations.",
+                "🙏 Divine Atmosphere: Known for its serene and powerful presence, attracting devotees year-round."
+            ]
+        },
+        "readMore-bhadrakali-warangal": {
+            "title": "Extended History of Bhadrakali Temple (Warangal)",
+            "content1": "The Bhadrakali Temple located in Warangal is an ancient temple dedicated to Goddess Bhadrakali, who is an incarnation of Goddess Durga. It is one of the oldest temples in Telangana and holds a special place in the hearts of devotees in the region.",
+            "content2": "Built during the Kakatiya dynasty in the 11th century, the temple stands as a significant symbol of the region’s cultural and spiritual heritage. The Kakatiya rulers were known for their contributions to art, architecture, and religious life, and the Bhadrakali Temple is a fine example of their architectural prowess.",
+            "content3": "The temple’s construction includes a large Nandi idol, a vast courtyard, and intricately designed stone pillars. The temple has been a center of worship for centuries, with many devotees coming to offer their prayers and seek the blessings of Goddess Bhadrakali.",
+            "content4": "The temple's grandeur and architectural beauty continue to attract thousands of visitors, particularly during festivals like Navratri, when the temple is a focal point of celebrations and spiritual gatherings.",
+            "highlights": [
+                "🕉️ Goddess Bhadrakali: Dedicated to the fierce goddess Durga in her Bhadrakali form.",
+                "🏛️ Kakatiya Architecture: Built during the Kakatiya dynasty, featuring beautiful carvings and stone pillars.",
+                "🎉 Celebrations: Major festivals like Navratri attract thousands of pilgrims every year.",
+                "🗿 Spiritual Significance: The temple stands as a symbol of spiritual and cultural importance for the region.",
+                "🏞️ Location: Situated in Warangal, the temple attracts visitors with its beauty and serenity."
+            ]
+        }
+    };
+
+    // Function to open the popup when a "Read More" button is clicked
+    document.querySelectorAll(".read-more").forEach(button => {
+        button.addEventListener("click", function () {
+            const templeId = this.getAttribute("id"); // Get ID of clicked button
+            const data = popupData[templeId]; // Get the data for the temple
+
+            if (data) {
+                // Populate the popup with data
+                document.getElementById("popupTitle").innerText = data.title;
+                document.getElementById("popupContent1").innerText = data.content1;
+                document.getElementById("popupContent2").innerText = data.content2;
+                document.getElementById("popupContent3").innerText = data.content3;
+                document.getElementById("popupContent4").innerText = data.content4;
+
+                // Add highlights
+                document.getElementById("popupHighlights").innerHTML = data.highlights.map(item => `<li>${item}</li>`).join('');
+
+                // Show the popup
+                document.getElementById("overlay").style.display = "block";
+                document.getElementById("historyPopup").style.display = "block";
+            }
+        });
+    });
+
+    // Close popup when "Close" button is clicked
+    document.getElementById("closePopup").addEventListener("click", function () {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("historyPopup").style.display = "none";
+    });
+});
+
+
+
+         document.addEventListener("DOMContentLoaded", function () {
+            // Image slider for each temple
+            document.querySelectorAll(".image-section").forEach((section) => {
+                let images = section.querySelectorAll(".image");
+                let radios = section.querySelectorAll(".radio-btn");
+                let currentIndex = 0;
+
+                function switchImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle("hidden", i !== index);
+                        radios[i].checked = i === index;
+                    });
+                    currentIndex = index;
+                }
+
+                radios.forEach((radio, index) => {
+                    radio.addEventListener("change", () => switchImage(index));
+                });
+
+                setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % images.length;
+                    switchImage(nextIndex);
+                }, 3000);
+            });
+
+        });
+        
+
+        // Page Navigation
+        document.getElementById('page2').addEventListener('click', function() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        });
+
+        document.getElementById('page3').addEventListener('click', function() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+        });
+
+        document.getElementById('page4').addEventListener('click', function() {
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        });
+
+        // Prevent page switch when interacting with input fields
+document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    input.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+document.getElementById("getTravelTimeButton").addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+// Prevent page switch when interacting with input fields and search button
+document.querySelectorAll('input[type="text"], button.search-button').forEach(element => {
+    element.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    element.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            let menu = document.getElementById("menuDrawer");
+            let menuIcon = document.querySelector(".menu-icon");
+
+            // If clicked outside menu and not on the menu button
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove("open");
+            }
+        });
+
+
+
+        const images = document.querySelectorAll(".image");
+const radios = document.querySelectorAll(".radio-btn");
+
+radios.forEach((radio, index) => {
+    radio.addEventListener("change", () => {
+        images.forEach(img => img.classList.add("hidden"));
+        images[index].classList.remove("hidden");
+    });
+});
+       
+    </script>
+</body>
+</html>

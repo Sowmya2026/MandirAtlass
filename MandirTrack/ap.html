@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttar Pradesh Temples | MandirAtlas</title>
+    <link rel="stylesheet" href="up.css"> <!-- Link to your common CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu_open" />
+    <style>
+       .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
+    z-index: 999;
+}
+
+/* Popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    max-width: 600px;
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Lora', serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Popup Title */
+.popup h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Popup Content */
+.popup p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Close Button */
+.popup button {
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup button:hover {
+    background-color: #e68a00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        padding: 20px;
+    }
+    .popup h2 {
+        font-size: 20px;
+    }
+    .popup p {
+        font-size: 15px;
+    }
+    .popup button {
+        font-size: 14px;
+    }
+}
+.read-more {
+  position: absolute;
+  bottom: 10px; /* Adjust this value to move it up or down */
+  right: 10px; /* Adjust this value to move it left or right */
+}
+
+
+        /* Travel Page Styling */
+        .travel-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .travel-section input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        .travel-section button {
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .travel-section button:hover {
+            background-color: #e68a00;
+        }
+        .travel-results {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <span class="material-symbols-outlined menu-icon" onclick="toggleMenu()">menu_open</span>
+        <h1 class="menu-title">MandirAtlas</h1>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav id="menuDrawer" class="menu-drawer">
+        <ul>
+            <li><a href="file:///F:/MandirTrack/up.html" onclick="toggleMenu();">🏛️ Uttar Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/tn.html" onclick="toggleMenu();">🏯 Tamil Nadu</a></li>
+            <li><a href="file:///F:/MandirTrack/tg.html" onclick="toggleMenu();">🛕 Telangana</a></li>
+            <li><a href="file:///F:/MandirTrack/ap.html" onclick="toggleMenu();">🕉️ Andhra Pradesh</a></li>
+            <li><a href="file:///F:/MandirTrack/k.html" onclick="toggleMenu();">🌺 Karnataka</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Rajasthan</a></li>
+            <li><a href="#" onclick="toggleMenu();">🏯 Maharashtra</a></li>
+            <li><a href="#" onclick="toggleMenu();">🔱 Gujarat</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌿 West Bengal</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌊 Kerala</a></li>
+            <li><a href="#" onclick="toggleMenu();">🛕 Madhya Pradesh</a></li>
+            <li><a href="#" onclick="toggleMenu();">🐘 Odisha</a></li>
+            <li><a href="#" onclick="toggleMenu();">🥁 Punjab</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌾 Bihar</a></li>
+            <li><a href="#" onclick="toggleMenu();">🌸 Assam</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h1>Temples in Tamil Nadu</h1>
+        <h2>Discover the most famous temples in Tamil Nadu</h2>
+
+    </div>
+
+    <div class="book-container">
+
+    </div>
+
+    <div class="book-container">
+
+    </div>
+
+<div class="book-container">
+    
+</div>
+
+  <!-- Popup for Extended History -->
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="historyPopup">
+      <h2 id="popupTitle"></h2>
+      <p id="popupContent1"></p>
+      <p id="popupContent2"></p>
+      <p id="popupContent3"></p>
+      <p  id="popupContent4"></p>
+      <button id="closePopup">Close</button>
+  </div>
+
+
+          <!-- External JavaScript -->
+  <script src="scripte.js"></script>
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            // Image slider for each temple
+            document.querySelectorAll(".image-section").forEach((section) => {
+                let images = section.querySelectorAll(".image");
+                let radios = section.querySelectorAll(".radio-btn");
+                let currentIndex = 0;
+
+                function switchImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle("hidden", i !== index);
+                        radios[i].checked = i === index;
+                    });
+                    currentIndex = index;
+                }
+
+                radios.forEach((radio, index) => {
+                    radio.addEventListener("change", () => switchImage(index));
+                });
+
+                setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % images.length;
+                    switchImage(nextIndex);
+                }, 3000);
+            });
+
+        });
+        
+
+        // Page Navigation
+        document.getElementById('page2').addEventListener('click', function() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        });
+
+        document.getElementById('page3').addEventListener('click', function() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+        });
+
+        document.getElementById('page4').addEventListener('click', function() {
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        });
+
+        // Prevent page switch when interacting with input fields
+document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    input.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+document.getElementById("getTravelTimeButton").addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+// Prevent page switch when interacting with input fields and search button
+document.querySelectorAll('input[type="text"], button.search-button').forEach(element => {
+    element.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+    element.addEventListener('keydown', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            let menu = document.getElementById("menuDrawer");
+            let menuIcon = document.querySelector(".menu-icon");
+
+            // If clicked outside menu and not on the menu button
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove("open");
+            }
+        });
+
+
+
+        const images = document.querySelectorAll(".image");
+const radios = document.querySelectorAll(".radio-btn");
+
+radios.forEach((radio, index) => {
+    radio.addEventListener("change", () => {
+        images.forEach(img => img.classList.add("hidden"));
+        images[index].classList.remove("hidden");
+    });
+});
+       
+    </script>
+</body>
+</html>
