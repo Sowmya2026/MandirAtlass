@@ -467,12 +467,13 @@ h2{
     color: #c16e3e;
 }
 .popular-temples {
-    padding: 10px 10px;
+    padding: 10px 130px;
     position: relative;
     overflow: hidden; /* Hide images when they move out of view */
   }
   
   .temple-slider {
+    padding-bottom: 50px;
     display: flex;
     overflow: hidden; /* Hide content that overflows */
   }
@@ -572,6 +573,7 @@ h2{
   .social-media a {
     padding-top:10px ;
     color: #fff;
+    font-size: large;
     text-decoration: none;
     margin: 0 10px;
   }
@@ -632,6 +634,7 @@ footer {
 .footer-links ul li {
   display: inline;
   margin: 0 10px;
+  font-size: large;
 }
 
 .footer-links a, .social-media a {
@@ -646,8 +649,8 @@ footer {
 }
 
 .contact-photo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin-bottom: 10px;
   object-fit: cover;
@@ -670,6 +673,7 @@ footer {
   color: #222;
   margin: 10% auto;
   padding: 20px;
+  font-size: large;
   border-radius: 8px;
   width: 50%;
   text-align: center;
@@ -699,4 +703,54 @@ footer {
   cursor: pointer;
 }
 
-  
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap");
+        
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf3e7;
+    color: #5a2d0c;
+}
+.container {
+    display: flex;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+.introduction, .sdg-content {
+    width: 50%;
+    padding: 20px;
+}
+.introduction {
+    border-right: 2px solid #d35400;
+    text-align: center;
+}
+.sdg-content {
+    text-align: left;
+}
+.introduction h2 {
+    color: #d35400;
+    font-size: 2.5rem;
+    font-family: "Playfair Display", serif;
+}
+.introduction h3 {
+    color: #a04000;
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+.introduction p, .sdg-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+.emoji {
+    font-size: 1.3rem;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
