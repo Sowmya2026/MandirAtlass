@@ -38,27 +38,14 @@ This structure is followed for every temple listed in the **Explore Temples** fe
 
 ## 🚀 Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
-- **Maps & GIS**: Leaflet.js, OpenStreetMap
-- **Hosting**: Vercel / Netlify
-
-## 🛠️ Setup
-1. Clone the repo:
-   ```sh
-   git clone https://github.com/your-username/MandirAtlas.git
-   cd MandirAtlas
-   ```
-2. Open `index.html` in a browser or use Live Server.
-
-## 📌 Contribution
-- Fork the repo, create a new branch, and submit a pull request.
+- **Backend**: Firebase (Authentication, Firestore, Hosting, Storage)
 
 ## 📜 License
 Licensed under **MIT License**.
 
-## 📬 Contact
-- Email: your-email@example.com
-- GitHub Issues: [Report an Issue](https://github.com/your-username/MandirAtlas/issues)
-- Social Media: [Facebook](#), [Twitter](#), [Instagram](#)
+## 📬 Contact  
+- 🔗 GitHub: [Sowmya2026](https://github.com/your-username/MandirAtlas/issues)  
+- 👔 LinkedIn: [Beemer Sowmya](www.linkedin.com/in/beemer-sowmya)  
 
 Happy Exploring! 🙏✨
 
